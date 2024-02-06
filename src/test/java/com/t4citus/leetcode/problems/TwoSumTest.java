@@ -30,7 +30,7 @@ public class TwoSumTest extends AbstractTestBase {
         int[] result = twoSumWithMap(input, target);
 
         // Then
-        System.out.println("For the input " + Arrays.toString(input) + " and the target " + target + " the output is " + Arrays.toString(result) + ".");
+        System.out.println("twoSum(" + Arrays.toString(input) + ", " + target + ") = " + Arrays.toString(expectedOutput));
         Assertions.assertThat(equals(result, expectedOutput)).isTrue();
     }
 
