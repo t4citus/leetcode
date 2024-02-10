@@ -1,6 +1,7 @@
 package com.t4citus.leetcode.problems;
 
 import com.t4citus.leetcode.AbstractTestBase;
+import com.t4citus.leetcode.annotations.Leetcode;
 import lombok.ToString;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -11,6 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
+@Leetcode(
+        title = "19. Remove Nth Node From End of List",
+        url = "https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/",
+        difficulty = Leetcode.Difficulty.EASY
+)
 public class RemoveNthNodeFromEndOfListTest extends AbstractTestBase {
 
     private static Stream<Arguments> testCases() {

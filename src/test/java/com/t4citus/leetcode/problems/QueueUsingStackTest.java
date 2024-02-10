@@ -1,6 +1,7 @@
 package com.t4citus.leetcode.problems;
 
 import com.t4citus.leetcode.AbstractTestBase;
+import com.t4citus.leetcode.annotations.Leetcode;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -10,6 +11,11 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.*;
 import java.util.stream.Stream;
 
+@Leetcode(
+        title = "232. Implement Queue using Stacks",
+        url = "https://leetcode.com/problems/implement-queue-using-stacks/description/",
+        difficulty = Leetcode.Difficulty.EASY
+)
 public class QueueUsingStackTest extends AbstractTestBase {
 
     @Test

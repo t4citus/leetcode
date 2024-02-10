@@ -1,6 +1,7 @@
 package com.t4citus.leetcode.problems;
 
 import com.t4citus.leetcode.AbstractTestBase;
+import com.t4citus.leetcode.annotations.Leetcode;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -9,6 +10,11 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
+@Leetcode(
+        title = "1929. Concatenation of Array",
+        url = "https://leetcode.com/problems/concatenation-of-array/description/",
+        difficulty = Leetcode.Difficulty.EASY
+)
 public class ConcatenationOfArrayTest extends AbstractTestBase {
 
     private static Stream<Arguments> testCases() {
