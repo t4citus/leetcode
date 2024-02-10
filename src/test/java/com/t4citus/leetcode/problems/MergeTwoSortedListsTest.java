@@ -1,11 +1,17 @@
 package com.t4citus.leetcode.problems;
 
 import com.t4citus.leetcode.AbstractTestBase;
+import com.t4citus.leetcode.annotations.Leetcode;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Leetcode(
+        title = "21. Merge Two Sorted Lists",
+        url = "https://leetcode.com/problems/merge-two-sorted-lists/description/",
+        difficulty = Leetcode.Difficulty.EASY
+)
 public class MergeTwoSortedListsTest extends AbstractTestBase {
 
     @Test

@@ -1,6 +1,7 @@
 package com.t4citus.leetcode.problems;
 
 import com.t4citus.leetcode.AbstractTestBase;
+import com.t4citus.leetcode.annotations.Leetcode;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -9,6 +10,11 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.*;
 import java.util.stream.Stream;
 
+@Leetcode(
+        title = "2363. Merge Similar Items",
+        url = "https://leetcode.com/problems/merge-similar-items/description/",
+        difficulty = Leetcode.Difficulty.EASY
+)
 public class MergeSimilarItemsTest extends AbstractTestBase {
 
     private static Stream<Arguments> testCases() {

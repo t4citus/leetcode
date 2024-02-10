@@ -1,6 +1,7 @@
 package com.t4citus.leetcode.problems;
 
 import com.t4citus.leetcode.AbstractTestBase;
+import com.t4citus.leetcode.annotations.Leetcode;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -11,6 +12,11 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Stream;
 
+@Leetcode(
+        title = "202. Happy Number",
+        url = "https://leetcode.com/problems/happy-number/description/",
+        difficulty = Leetcode.Difficulty.EASY
+)
 public class HappyNumberTest extends AbstractTestBase {
 
     private static Stream<Arguments> testCases() {

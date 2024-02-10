@@ -1,6 +1,7 @@
 package com.t4citus.leetcode.problems;
 
 import com.t4citus.leetcode.AbstractTestBase;
+import com.t4citus.leetcode.annotations.Leetcode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.assertj.core.api.Assertions;
@@ -12,6 +13,11 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.*;
 import java.util.stream.Stream;
 
+@Leetcode(
+        title = "234. Palindrome Linked List",
+        url = "https://leetcode.com/problems/palindrome-linked-list/description/",
+        difficulty = Leetcode.Difficulty.EASY
+)
 public class PalindromeLinkedListTest extends AbstractTestBase {
 
     private static Stream<Arguments> testCases() {
