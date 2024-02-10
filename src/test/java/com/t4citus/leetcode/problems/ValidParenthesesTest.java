@@ -28,7 +28,7 @@ public class ValidParenthesesTest extends AbstractTestBase {
         boolean isValid = isValid(input);
 
         // Then
-        System.out.println("The parenthesis for '" + input + "' are " + (isValid ? "valid" : "invalid") + ".");
+        System.out.println("isValid(" + input + ") = " + isValid);
         Assertions.assertThat(isValid).isEqualTo(expectedOutput);
     }
 
