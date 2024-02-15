@@ -35,7 +35,7 @@ public class RemoveElementTest extends AbstractTestBase {
         // Then
         System.out.println("The resulting array is " + Arrays.toString(arr) + " with the length of " + length + ".");
         Assertions.assertThat(length).isEqualTo(expectedLength);
-        Assertions.assertThat(equals(arr, expectedArr)).isTrue();
+        Assertions.assertThat(IntUtil.equals(arr, expectedArr)).isTrue();
     }
 
     public int removeElement(int[] nums, int val) {

@@ -35,7 +35,7 @@ public class LargestLocalValuesInMatrixTest extends AbstractTestBase {
 
         // Then
         System.out.println("largestLocal(" + toString(input) + ") = " + toString(localGrid));
-        Assertions.assertThat(equals(localGrid, expectedOutput)).isTrue();
+        Assertions.assertThat(IntUtil.equals(localGrid, expectedOutput)).isTrue();
     }
 
     public int[][] largestLocal(int[][] grid) {

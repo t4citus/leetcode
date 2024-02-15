@@ -36,7 +36,7 @@ public class MoveZerosTest extends AbstractTestBase {
 
         // Then
         System.out.println("moveZeroes(" + Arrays.toString(initial) + ") = " + Arrays.toString(input));
-        Assertions.assertThat(equals(input, expectedOutput)).isTrue();
+        Assertions.assertThat(IntUtil.equals(input, expectedOutput)).isTrue();
     }
 
     public void moveZeroes(int[] nums) {

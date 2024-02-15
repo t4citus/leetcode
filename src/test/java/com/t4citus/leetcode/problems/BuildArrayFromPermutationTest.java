@@ -34,7 +34,7 @@ public class BuildArrayFromPermutationTest extends AbstractTestBase {
 
         // Then
         System.out.println("buildArray(" + Arrays.toString(input) + ") = " + Arrays.toString(expectedOutput));
-        Assertions.assertThat(equals(arr, expectedOutput)).isTrue();
+        Assertions.assertThat(IntUtil.equals(arr, expectedOutput)).isTrue();
     }
 
     public int[] buildArray(int[] nums) {
