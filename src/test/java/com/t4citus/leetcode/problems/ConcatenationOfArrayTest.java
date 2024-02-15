@@ -34,7 +34,7 @@ public class ConcatenationOfArrayTest extends AbstractTestBase {
 
         // Then
         System.out.println("getConcatenation(" + Arrays.toString(input) + ") = " + Arrays.toString(expectedOutput));
-        Assertions.assertThat(equals(concat, expectedOutput)).isTrue();
+        Assertions.assertThat(IntUtil.equals(concat, expectedOutput)).isTrue();
     }
 
     public int[] getConcatenation(int[] nums) {

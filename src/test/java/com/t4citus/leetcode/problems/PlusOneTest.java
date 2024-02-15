@@ -35,7 +35,7 @@ public class PlusOneTest extends AbstractTestBase {
 
         // Then
         System.out.println("plusOne(" + Arrays.toString(input) + ") = " + Arrays.toString(plusOne));
-        Assertions.assertThat(equals(plusOne, expectedOutput)).isTrue();
+        Assertions.assertThat(IntUtil.equals(plusOne, expectedOutput)).isTrue();
     }
 
     public int[] plusOne(int[] digits) {

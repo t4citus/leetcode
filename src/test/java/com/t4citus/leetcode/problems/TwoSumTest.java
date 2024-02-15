@@ -37,7 +37,7 @@ public class TwoSumTest extends AbstractTestBase {
 
         // Then
         System.out.println("twoSum(" + Arrays.toString(input) + ", " + target + ") = " + Arrays.toString(expectedOutput));
-        Assertions.assertThat(equals(result, expectedOutput)).isTrue();
+        Assertions.assertThat(IntUtil.equals(result, expectedOutput)).isTrue();
     }
 
     public int[] twoSum(int[] nums, int target) {
