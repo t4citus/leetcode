@@ -2,15 +2,12 @@ package com.t4citus.leetcode.problems;
 
 import com.t4citus.leetcode.AbstractTestBase;
 import com.t4citus.leetcode.annotations.Leetcode;
+import com.t4citus.leetcode.problems.support.ListNode;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.stream.Stream;
 
 @Leetcode(
@@ -31,15 +28,15 @@ public class MiddleOfLinkedListTest extends AbstractTestBase {
     @MethodSource("testCases")
     public void givenTestCase_whenRunSolution_thenReturnsAsExpected(int[] input, int[] expectedOutput) {
         // Given
-        ListNode head = nodes(input);
-        ListNode expected = nodes(expectedOutput);
+        ListNode head = ListNode.createNodes(input);
+        ListNode expected = ListNode.createNodes(expectedOutput);
 
         // When
         ListNode middle = middleNode(head);
 
         // Then
-        System.out.println("middleNode(" + toString(head) + ") = " + toString(expected));
-        Assertions.assertThat(equals(middle, expected)).isTrue();
+        System.out.println("middleNode(" + ListNode.toString(head) + ") = " + ListNode.toString(expected));
+        Assertions.assertThat(ListNode.equals(middle, expected)).isTrue();
     }
 
     public ListNode middleNode(ListNode head) {
@@ -59,64 +56,5 @@ public class MiddleOfLinkedListTest extends AbstractTestBase {
         }
 
         return slow;
-    }
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
-    static ListNode nodes(int[] ints) {
-        ListNode[] nodes = Arrays.stream(ints).mapToObj(ListNode::new).toArray(ListNode[]::new);
-
-        for (int i = 0; i < nodes.length - 1; i++) {
-            nodes[i].next = nodes[i + 1];
-        }
-
-        return nodes[0];
-    }
-
-    static String toString(ListNode head) {
-        if (head == null)
-            return Collections.emptyList().toString();
-
-        List<Integer> values = new ArrayList<>();
-        ListNode curr = head;
-
-        while (curr != null) {
-            values.add(curr.val);
-            curr = curr.next;
-        }
-
-        return values.toString();
-    }
-
-    static boolean equals(ListNode left, ListNode right) {
-        if (left == null && right == null)
-            return true;
-
-        if (left == null || right == null)
-            return false;
-
-        while (left != null && right != null) {
-            if (left.val != right.val)
-                return false;
-            left = left.next;
-            right = right.next;
-        }
-
-        return left == null && right == null;
     }
 }

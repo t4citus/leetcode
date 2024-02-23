@@ -2,15 +2,13 @@ package com.t4citus.leetcode.problems;
 
 import com.t4citus.leetcode.AbstractTestBase;
 import com.t4citus.leetcode.annotations.Leetcode;
+import com.t4citus.leetcode.problems.support.ListNode;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.stream.Stream;
 
 @Leetcode(
@@ -33,7 +31,7 @@ public class LinkedListCycleTest extends AbstractTestBase {
     @MethodSource("testCases")
     public void givenTestCase_whenRunSolution_thenReturnsAsExpected(int[] input, int pos, boolean expectedOutput) {
         // Given
-        ListNode head = nodes(input, pos);
+        ListNode head = createNodes(input, pos);
         // String headString = toString(head);
 
         // When
@@ -62,26 +60,11 @@ public class LinkedListCycleTest extends AbstractTestBase {
         return false;
     }
 
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-
-        public ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     /**
      * The ints array contains all the elements to be converted into ListNodes. In case pos >= 0 the last element
      * is referencing back the element at index 'pos'. Note that 'pos' is 0-indexed.
      */
-    static ListNode nodes(int[] ints, int pos) {
+    static ListNode createNodes(int[] ints, int pos) {
         ListNode[] nodes = Arrays.stream(ints).mapToObj(ListNode::new).toArray(ListNode[]::new);
 
         for (int i = 0; i < nodes.length - 1; i++) {
@@ -94,20 +77,5 @@ public class LinkedListCycleTest extends AbstractTestBase {
         }
 
         return nodes[0];
-    }
-
-    static String toString(ListNode head) {
-        if (head == null)
-            return Collections.emptyList().toString();
-
-        List<Integer> values = new ArrayList<>();
-        ListNode curr = head;
-
-        while (curr != null) {
-            values.add(curr.val);
-            curr = curr.next;
-        }
-
-        return values.toString();
     }
 }

@@ -2,15 +2,15 @@ package com.t4citus.leetcode.problems;
 
 import com.t4citus.leetcode.AbstractTestBase;
 import com.t4citus.leetcode.annotations.Leetcode;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import com.t4citus.leetcode.problems.support.ListNode;
 import org.assertj.core.api.Assertions;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import java.util.stream.Stream;
 
 @Leetcode(
@@ -35,7 +35,7 @@ public class PalindromeLinkedListTest extends AbstractTestBase {
         // Given
 
         // When
-        String headPrintable = toString(head);
+        String headPrintable = ListNode.toString(head);
         boolean isPalindrome = isPalindrome(head);
 
         // Then
@@ -62,24 +62,6 @@ public class PalindromeLinkedListTest extends AbstractTestBase {
         }
 
         return true;
-    }
-
-    @ToString
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
     }
 
     public boolean isPalindrome(ListNode head) {
@@ -114,34 +96,5 @@ public class PalindromeLinkedListTest extends AbstractTestBase {
         }
 
         return true;
-    }
-
-    public ListNode reverse(ListNode head) {
-        ListNode prev = null;
-        ListNode slow = head;
-
-        while (slow != null) {
-            ListNode next = slow.next;
-            slow.next = prev;
-            prev = slow;
-            slow = next;
-        }
-
-        return prev;
-    }
-
-    static String toString(ListNode head) {
-        if (head == null)
-            return Collections.emptyList().toString();
-
-        List<Integer> values = new ArrayList<>();
-        ListNode next = head;
-
-        while (next != null) {
-            values.add(next.val);
-            next = next.next;
-        }
-
-        return values.toString();
     }
 }

@@ -2,14 +2,12 @@ package com.t4citus.leetcode.problems;
 
 import com.t4citus.leetcode.AbstractTestBase;
 import com.t4citus.leetcode.annotations.Leetcode;
-import lombok.ToString;
+import com.t4citus.leetcode.problems.support.ListNode;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Stream;
 
 @Leetcode(
@@ -35,12 +33,12 @@ public class RemoveNthNodeFromEndOfListTest extends AbstractTestBase {
         ListNode head = toListNodes(input);
 
         // When
-        String headString = toString(head);
+        String headString = ListNode.toString(head);
         ListNode removed = removeNthFromEnd(head, n);
 
         // Then
-        System.out.println("removeNthFromEnd(" + headString + ") = " + toString(removed));
-        Assertions.assertThat(equals(removed, toListNodes(expectedOutput))).isTrue();
+        System.out.println("removeNthFromEnd(" + headString + ") = " + ListNode.toString(removed));
+        Assertions.assertThat(ListNode.equals(removed, toListNodes(expectedOutput))).isTrue();
     }
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
@@ -67,56 +65,6 @@ public class RemoveNthNodeFromEndOfListTest extends AbstractTestBase {
         slow.next = slow.next.next;
 
         return head;
-    }
-
-    @ToString
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
-    static String toString(ListNode head) {
-        if (head == null)
-            return null;
-
-        List<Integer> values = new ArrayList<>();
-        ListNode next = head;
-
-        while (next != null) {
-            values.add(next.val);
-            next = next.next;
-        }
-
-        return values.toString();
-    }
-
-    static boolean equals(ListNode left, ListNode right) {
-        if (left == null && right == null)
-            return true;
-
-        if (left == null || right == null)
-            return false;
-
-        while (left != null && right != null) {
-            if (left.val != right.val)
-                return false;
-            left = left.next;
-            right = right.next;
-        }
-
-        return left == null && right == null;
     }
 
     static ListNode toListNodes(int[] arr) {

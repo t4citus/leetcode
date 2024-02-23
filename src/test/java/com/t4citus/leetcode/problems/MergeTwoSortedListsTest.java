@@ -2,15 +2,12 @@ package com.t4citus.leetcode.problems;
 
 import com.t4citus.leetcode.AbstractTestBase;
 import com.t4citus.leetcode.annotations.Leetcode;
+import com.t4citus.leetcode.problems.support.ListNode;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.stream.Stream;
 
 @Leetcode(
@@ -32,16 +29,16 @@ public class MergeTwoSortedListsTest extends AbstractTestBase {
     @MethodSource("testCases")
     public void givenTestCase_whenMergeTwoLists_thenReturnsAsExpected(int[] ints1, int[] ints2, int[] expectedOutput) {
         // Given
-        ListNode list1 = nodes(ints1);
-        ListNode list2 = nodes(ints2);
-        ListNode expected = nodes(expectedOutput);
+        ListNode list1 = ListNode.createNodes(ints1);
+        ListNode list2 = ListNode.createNodes(ints2);
+        ListNode expected = ListNode.createNodes(expectedOutput);
 
         // When
         ListNode merged = mergeTwoLists(list1, list2);
 
         // Then
-        System.out.println("mergeTwoLists(" + toString(list1) + ", " + toString(list2) + ") = " + toString(merged));
-        Assertions.assertThat(equals(merged, expected)).isTrue();
+        System.out.println("mergeTwoLists(" + ListNode.toString(list1) + ", " + ListNode.toString(list2) + ") = " + ListNode.toString(merged));
+        Assertions.assertThat(ListNode.equals(merged, expected)).isTrue();
     }
 
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
@@ -58,67 +55,5 @@ public class MergeTwoSortedListsTest extends AbstractTestBase {
             list2.next = mergeTwoLists(list1, list2.next);
             return list2;
         }
-    }
-
-    static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
-    static ListNode nodes(int[] ints) {
-        if (ints == null || ints.length == 0)
-            return null;
-
-        ListNode[] nodes = Arrays.stream(ints).mapToObj(ListNode::new).toArray(ListNode[]::new);
-
-        for (int i = 0; i < nodes.length - 1; i++) {
-            nodes[i].next = nodes[i + 1];
-        }
-
-        return nodes[0];
-    }
-
-    static String toString(ListNode head) {
-        if (head == null)
-            return Collections.emptyList().toString();
-
-        List<Integer> values = new ArrayList<>();
-        ListNode curr = head;
-
-        while (curr != null) {
-            values.add(curr.val);
-            curr = curr.next;
-        }
-
-        return values.toString();
-    }
-
-    static boolean equals(ListNode left, ListNode right) {
-        if (left == null && right == null)
-            return true;
-
-        if (left == null || right == null)
-            return false;
-
-        while (left != null && right != null) {
-            if (left.val != right.val)
-                return false;
-            left = left.next;
-            right = right.next;
-        }
-
-        return left == null && right == null;
     }
 }
