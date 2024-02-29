@@ -42,10 +42,27 @@ public class TreeNode {
             while (!queue.isEmpty()) {
                 TreeNode curr = queue.poll();
                 values.add(curr.val);
-                if (curr.left != null) queue.add(curr.left);
-                if (curr.right != null) queue.add(curr.right);
+                if (curr.left != null || curr.right != null) {
+                    queue.add(curr.left != null ? curr.left : new TreeNode(0));
+                    queue.add(curr.right != null ? curr.right : new TreeNode(0));
+                }
+
+//                if (curr.left != null) queue.add(curr.left);
+//                if (curr.right != null) queue.add(curr.right);
             }
         }
         return values.stream().map(Object::toString).collect(Collectors.joining(",", "[", "]"));
+    }
+
+    public static boolean equals(TreeNode left, TreeNode right) {
+        if (left == null && right == null) return true;
+
+        if(left != null && right != null) {
+            return left.val == right.val
+                    && equals(left.left, right.left)
+                    && equals(left.right, right.right);
+        }
+
+        return false;
     }
 }
