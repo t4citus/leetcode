@@ -52,7 +52,7 @@ public class MinimizeStringLengthTest extends AbstractTestBase {
                 count += 1;
             }
         }
-git git
+
         return count;
     }
 }
